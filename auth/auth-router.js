@@ -33,11 +33,11 @@ router.post('/login', (req, res) => {
     })
 })
 
-router.delete('/'), (req, res) => {
+router.delete('/', (req, res) => {
     if (req.session) {
         req.session.destroy();
     }
-    res.status(200).json({ message: 'bye! Hope to see ya again!'})
-}
+    res.status(200).json({ message: 'Bye! Hope to see ya again!'})
+})
 
 module.exports = router;

@@ -6,6 +6,7 @@ const KnexSessionStore = require('connect-session-knex')(session)
 
 const userRouter = require('../user/user-router.js');
 const authRouter = require('../auth/auth-router.js');
+const restrictedRouter = require('../restrictedarea/restricted-router.js')
 
 const server = express();
 
@@ -34,10 +35,11 @@ server.use(cors());
 server.use(session(sessionConfig));
 
 server.get('/', (req, res) => {
-  res.send("It's alive!");
+  res.send('Site is fully up and running. :)');
 });
 
 server.use('/users', userRouter);
 server.use('/auth', authRouter);
+server.use('/restricted', restrictedRouter)
 
 module.exports = server;
